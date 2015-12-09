@@ -11,12 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208211301) do
+ActiveRecord::Schema.define(version: 20151209145226) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reagents", force: :cascade do |t|
+    t.string   "reagent_name"
+    t.date     "expiration"
+    t.integer  "flex"
+    t.integer  "flex_per_box"
+    t.integer  "test_per_flex"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "techs", force: :cascade do |t|
+    t.string   "techname"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

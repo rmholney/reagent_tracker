@@ -15,6 +15,10 @@ class ReagentsController < ApplicationController
     end
   end
   
+  def index
+    @recipes = Recipe.all
+  end
+  
   private
     def reagent_params
       params.require(:reagent).permit(:reagent_name, :expiration, :flex, :flex_per_box, :test_per_flex)

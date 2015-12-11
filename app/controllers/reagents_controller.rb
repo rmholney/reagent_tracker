@@ -7,9 +7,11 @@ class ReagentsController < ApplicationController
     @reagent = Reagent.new(reagent_params)
     
     if @reagent.save
-      redirect_to new_reagent_path, notice: "Successfully save."
+      flash[:success] = "Reagent saved."
+      redirect_to new_reagent_path
     else
-      redirect_to new_reagent_path, notice: "Failed to save reagent."
+      flash[:danger] = "Failed to save."
+      redirect_to new_reagent_path
     end
   end
   

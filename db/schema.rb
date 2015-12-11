@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209145226) do
+ActiveRecord::Schema.define(version: 20151211022730) do
+
+  create_table "calibrators", force: :cascade do |t|
+    t.string  "name"
+    t.string  "lot"
+    t.date    "expiration"
+    t.integer "box"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151209145226) do
     t.integer  "test_per_flex"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "lot"
   end
 
   create_table "techs", force: :cascade do |t|

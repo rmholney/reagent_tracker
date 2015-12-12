@@ -1,0 +1,23 @@
+<h1 class="center">Reagent Inventory</h1>
+<hr/>
+
+
+
+    <div class="row">
+      
+      <div class="col-md-4">
+        <div class="well">
+          <% @reagents.each do |reagent| %>
+            <div class="btn-group btn-group-vertical btn-group-lg">
+            
+              <button class="btn btn-primary" type="button">
+                  <%= reagent.reagent_name %> 
+                <span class="badge"><%= reagent.flex %></span>
+              </button>
+            <% end %> 
+          </div>
+        </div>
+      </div>
+      
+    </div>
+

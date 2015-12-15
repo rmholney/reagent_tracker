@@ -5,4 +5,5 @@ class Reagent < ActiveRecord::Base
   validates :flex_per_box, presence: true
   validates :test_per_flex, presence: true
   validates :lot, presence: true
+  
 end

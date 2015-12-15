@@ -1,23 +1,43 @@
-<h1 class="center">Reagent Inventory</h1>
+<h1 class="text-center">Reagents Inventory</h1>
 <hr/>
 
 
 
     <div class="row">
       
-      <div class="col-md-4">
-        <div class="well">
-          <% @reagents.each do |reagent| %>
-            <div class="btn-group btn-group-vertical btn-group-lg">
+      <div class="col-md-8 col-md-offset-2">
+        <div>
+          
+          <table class="table table-striped apple">
+            <tr class = "success">
+              <th>Reagent</th>
+              <th>Flex</th>
+              <th>Updated</th>
+              <th class = "text-center">Action</th>
+              
+            </tr>
             
-              <button class="btn btn-primary" type="button">
-                  <%= reagent.reagent_name %> 
-                <span class="badge"><%= reagent.flex %></span>
-              </button>
-            <% end %> 
-          </div>
+            <% @reagents.each do |reagent| %>
+            <tr>
+              <td><%= reagent.reagent_name %></td>
+              <td><%= reagent.flex %></td>
+              <td><%= time_ago_in_words(reagent.updated_at) %></td>
+              <td class = "text-center"><%= link_to 'update', edit_reagent_path(reagent) %> </td>
+            </tr>
+                <!--<button type="button" class="btn btn-primary btn-block">-->
+                <!--  <%= reagent.reagent_name %> -->
+                <!--  <small><%= time_ago_in_words(reagent.updated_at) %></small> -->
+                <!--  <span class="badge"><%= reagent.flex %></span>-->
+                <!--</button>-->
+              
+              <% end %>
+            
+          </table>
+          
         </div>
       </div>
+      
+    
       
     </div>
 

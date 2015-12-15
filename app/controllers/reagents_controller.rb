@@ -11,8 +11,13 @@ class ReagentsController < ApplicationController
       redirect_to reagents_path
     else
       flash[:danger] = "Failed to save."
-      redirect_to new_reagent_path
+      render :new
     end
+    
+  end
+  
+  def edit
+    @reagent = Reagent.find(params[:id])
   end
   
   def index
@@ -23,7 +28,4 @@ class ReagentsController < ApplicationController
     def reagent_params
       params.require(:reagent).permit(:reagent_name, :lot, :expiration, :flex, :flex_per_box, :test_per_flex)
     end
-  
-  
-  
 end

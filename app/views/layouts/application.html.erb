@@ -24,17 +24,15 @@
         <li><%= link_to "Contact Us", new_contact_path %></li>
         <li><%= link_to "Add Reagent", new_reagent_path %></li>
         <li><%= link_to "Add Calibrator", new_calibrator_path %></li>
-        
+        <li><%= link_to "Reagents", reagents_path %></li>
       </ul>
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
   
 <div class="container">
-  <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: "alert alert-#{key}" %>
-    <% end %>
-    
+  
+  <%= render 'layouts/messages' %>  
   <%= yield %>
 </div>
 

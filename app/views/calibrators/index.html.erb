@@ -1,0 +1,41 @@
+<h1 class="text-center">Reagents Inventory</h1>
+<hr/>
+
+
+
+    <div class="row">
+      
+      <div class="col-md-8 col-md-offset-2">
+        <div>
+          
+          <table class="table table-striped apple">
+            <tr class = "success">
+              <th>Calibrator</th>
+              <th>Lot</th>
+              <th>Set</th>
+              <th>Updated</th>
+              <th class = "text-center">Action</th>
+              
+            </tr>
+            
+            <% @calibrators.each do |calibrator| %>
+            
+            <tr>
+              <td><%= calibrator.name %></td>
+              <td><%= calibrator.lot %></td>
+              <td><%= calibrator.sets %></td>
+              <td><%= time_ago_in_words(calibrator.updated_at) %></td>
+              <td class = "text-center"><%= link_to 'update', edit_calibrator_path(calibrator) %> </td>
+            </tr>
+            
+            <% end %>
+            
+          </table>
+          
+        </div>
+      </div>
+      
+    
+      
+    </div>
+

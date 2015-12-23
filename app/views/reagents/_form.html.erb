@@ -1,0 +1,45 @@
+
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="well">
+      <%= form_for @reagent do |f| %>
+      
+      <div class="form_group"></div>
+        <%= f.label :name %>
+        <%= f.text_field :reagent_name, class: 'form-control' %>
+        
+      <div class="form_group">
+        <%= f.label :lot %>
+        <%= f.text_field :lot, class: 'form-control' %>
+      </div>
+      
+       <br />
+      
+      <div class="form_group">
+        <%= f.label :expiration %>
+        <%= f.date_select :expiration, class: 'form-control' %>
+      </div>
+      
+      <div class="form_group">
+        <%= f.label :flex %>
+        <%= f.text_field :flex, class: 'form-control' %>
+      </div>
+     
+      <div class="form_group">
+        <%= f.label :flex_per_box %>
+        <%= f.text_field :flex_per_box, class: 'form-control' %>
+      </div>
+      
+      <div class="form_group">
+        <%= f.label :test_per_flex %>
+        <%= f.text_field :test_per_flex, class: 'form-control' %>
+      </div>
+      
+        <br/>
+      <%= f.submit 'Submit', class: 'btn btn-success' %>  
+      
+      <% end %>
+    </div>
+  </div>
+</div>

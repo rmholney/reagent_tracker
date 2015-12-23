@@ -1,4 +1,9 @@
 class CalibratorsController < ApplicationController
+  
+  def index
+    @calibrators = Caibrator.all
+    
+  end
   def new
     @calibrator = Calibrator.new
   end
@@ -15,9 +20,16 @@ class CalibratorsController < ApplicationController
     end
   end
   
+  def edit
+    @calibrator = Calibrator.find(params[:id])
+  end
+  
+  def update
+  end
+  
   private
     def calibrator_params
-      params.require(:calibrator).permit(:name, :expiration, :lot, :box)
+      params.require(:calibrator).permit(:name, :expiration, :lot, :sets, :box)
     end
   
   

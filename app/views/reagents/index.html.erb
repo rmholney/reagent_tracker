@@ -11,6 +11,7 @@
           <table class="table table-striped apple">
             <tr class = "success">
               <th>Reagent</th>
+              <th>Lot</th>
               <th>Flex</th>
               <th>Updated</th>
               <th class = "text-center">Action</th>
@@ -19,7 +20,8 @@
             
             <% @reagents.each do |reagent| %>
             <tr>
-              <td><%= reagent.reagent_name %></td>
+              <td><%= link_to reagent.reagent_name, reagent_path(reagent) %></td>
+              <td><%= reagent.lot %></td>
               <td><%= reagent.flex %></td>
               <td><%= time_ago_in_words(reagent.updated_at) %></td>
               <td class = "text-center"><%= link_to 'update', edit_reagent_path(reagent) %> </td>

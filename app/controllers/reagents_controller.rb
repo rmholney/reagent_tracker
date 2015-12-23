@@ -1,4 +1,8 @@
 class ReagentsController < ApplicationController
+  
+  def show
+    @reagent = Reagent.find(params[:id])
+  end
   def new
     @reagent = Reagent.new
   end
@@ -18,6 +22,18 @@ class ReagentsController < ApplicationController
   
   def edit
     @reagent = Reagent.find(params[:id])
+  end
+  
+  def update
+    @reagent = Reagent.find(params[:id])
+    
+    if @reagent.update(reagent_params)
+      flash[:success] = "Reagent successfully updated."
+      redirect_to reagents_path
+    else
+      flash[:danger] = "Reagent failed to update." 
+      render :edit
+    end
   end
   
   def index

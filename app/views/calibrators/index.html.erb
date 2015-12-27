@@ -21,7 +21,7 @@
             <% @calibrators.each do |calibrator| %>
             
             <tr>
-              <td><%= calibrator.name %></td>
+              <td><%= link_to calibrator.name, calibrator_path(calibrator) %></td>
               <td><%= calibrator.lot %></td>
               <td><%= calibrator.sets %></td>
               <td><%= time_ago_in_words(calibrator.updated_at) %></td>

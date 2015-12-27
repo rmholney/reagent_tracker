@@ -1,8 +1,11 @@
 class CalibratorsController < ApplicationController
   
   def index
-    @calibrators = Caibrator.all
-    
+    @calibrators = Calibrator.all
+  end
+  
+  def show
+    @calibrator = Calibrator.find(params[:id])
   end
   def new
     @calibrator = Calibrator.new
@@ -13,10 +16,13 @@ class CalibratorsController < ApplicationController
     
     if @calibrator.save
       flash[:success] = "Calibrator saved."
-      redirect_to new_calibrator_path
+      redirect_to calibrators_path
     else
-      flash[:danger] = "Failed to save."
-      redirect_to new_calibrator_path
+      flash[:danger] = "Failed to saved."
+      
+      render :new
+      
+      
     end
   end
   
@@ -25,6 +31,15 @@ class CalibratorsController < ApplicationController
   end
   
   def update
+    @calibrator = Calibrator.find(params[:id])
+    
+    if @calibrator.update(calibrator_params)
+      flash[:success] = "Calibrator successfully updated"
+      redirect_to calibrators_path
+    else
+      flash[:danger] = "Calibrator failed to update"
+      render :edit
+    end
   end
   
   private

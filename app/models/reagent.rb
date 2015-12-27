@@ -1,4 +1,5 @@
 class Reagent < ActiveRecord::Base
+  belongs_to :calibrator
   before_save { self.reagent_name = reagent_name.upcase}
   before_save { self.lot = lot.upcase }
   validates :reagent_name, presence: true, length: { maximum: 5 }

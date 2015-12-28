@@ -40,6 +40,13 @@ class ReagentsController < ApplicationController
     @reagents = Reagent.all
   end
   
+  def destroy
+    @reagent = Reagent.find(params[:id])
+    @reagent.destroy
+    
+    redirect_to reagents_path
+  end
+  
   private
     def reagent_params
       params.require(:reagent).permit(:reagent_name, :lot, :expiration, :flex, :flex_per_box, :test_per_flex)

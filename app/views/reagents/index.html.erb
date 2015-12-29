@@ -15,7 +15,7 @@
               <th>Flex</th>
               <th>Updated</th>
               <th class = "text-center">Action</th>
-              
+              <th class = "text-center">Delete</th>
             </tr>
             
             <% @reagents.each do |reagent| %>
@@ -24,7 +24,8 @@
               <td><%= reagent.lot %></td>
               <td><%= reagent.flex %></td>
               <td><%= time_ago_in_words(reagent.updated_at) %></td>
-              <td class = "text-center"><%= link_to 'update', edit_reagent_path(reagent) %> </td>
+              <td class = "text-center"><%= link_to 'Update', edit_reagent_path(reagent) %> </td>
+              <td class = "text-center"><%= link_to 'Destroy', reagent_path(reagent), method: :delete, data: { confirm: 'Are you sure?'} %></td>
             </tr>
                 <!--<button type="button" class="btn btn-primary btn-block">-->
                 <!--  <%= reagent.reagent_name %> -->
